@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #f2f2f2; /* General page background */
+    font-family: Arial, sans-serif;
+}
+
+.register_container {
+    display: flex; /* Activates Flexbox on the parent */
+    width: 900px; /* Total width of the form area */
+    height: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden; /* Keeps content inside rounded corners */
+    background-image: url('images/cafeimage.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: 70%;
+      background-position: center;
+}
+
+.left-box {
+    width: 50%; 
+    background: transparent;
+}
+
+.right-box {
+    width: 50%; /* Takes the other half */
+    padding: 40px;
+    /* Semi-transparent dark background for the form area */
+    background: rgba(0, 0, 0, 0.8); 
+    color: white;
+}
+.right-box h2{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+label{
+    font-size: 15px;
+    display: block;
+    margin-top: 20px;
+}
+
+/* Basic styling for inputs/buttons within the form */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 8px;
+}
+
+.register-btn {
+    width: 100%;
+        padding: 14px;
+        background: #66c029;
+        border: none;
+        border-radius: 25px;
+        margin-top: 30px;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    
+}
+.bottom a{
+    color: #7bc7ff;
+}
+
+

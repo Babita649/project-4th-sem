@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Page</title>
-<link rel="stylesheet" href="signin.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="signin.css">
 </head>
 <body>
-
+<form id="signinForm">
 <div class="container">
     
     <div class="left"></div>
@@ -16,10 +16,10 @@
         <h2>Sign in</h2>
 
         <label>Username</label>
-        <input type="text" placeholder="Username">
+        <input type="text" id="username" placeholder="Username">
 
         <label>Password</label>
-        <input type="password" placeholder="Password">
+        <input type="password" id="password" placeholder="Password">
 
         <span class="forget">Forget Password?</span>
 
@@ -27,14 +27,16 @@
             <input type="checkbox"> Remember me
         </div>
 
-        <button class="login-btn">Login</button>
+        <button class="login-btn" id="loginBtn">Login</button>
 
         <div class="bottom">
-            Don't have an account? <a href="#">Register Now</a>
+            Don't have an account? <a href="register.html" id="registerLink">Register Now</a>
         </div>
     </div>
 
 </div>
 
+<script src="signin.js"></script>
+</form>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="signup.css">
 </head>
 <body>
-
+<form id="signupForm">
 <div class="container">
     
     <div class="left"></div>
@@ -22,22 +22,18 @@
         <input type="password" placeholder="Email address..">
 
     <label>Username</label>
-        <input type="text" placeholder="Username">
+        <input type="text" id="usernname" placeholder="Username">
         <label>Password</label>
-        <input type="password" placeholder="Password">
+        <input type="password"id="password" placeholder="Password">
         <label>Confirm Password</label>
-        <input type="password" placeholder="Confirm password">
-
-        <div class="Terms of Use">
+        <input type="password" id="confirmPassword" placeholder="Confirm password">
+        <button class="signup-btn" id="signupBtn">Sign up</button> 
+        <div class="Terms">
             <input type="checkbox"> I agree to the Terms of Use.
-        </div>
-
-        <button class="signup-btn">Sign up</button>
-
-        
+        </div>   
     </div>
 
 </div>
-
+</form>
 </body>
 </html>
