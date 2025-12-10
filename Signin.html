@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <link rel="stylesheet" href="signin.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<link rel="stylesheet" href="signin.css">
 </head>
 <body>
-<form id="signinForm">
-<div class="container">
-    
-    <div class="left"></div>
 
-    <div class="right">
-        <h2>Sign in</h2>
+<form id="signinForm" method="POST" action="signin.php">
+    <div class="container">
+        <div class="left"></div>
+        <div class="right">
+            <h2>Sign in</h2>
 
-        <label>Username</label>
-        <input type="text" id="username" placeholder="Username">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <span id="err_email" style="color:red;">
+                <!-- Display server-side errors if any -->
+                <?php if(isset($_GET['error'])) echo htmlspecialchars($_GET['error']); ?>
+            </span>
 
-        <label>Password</label>
-        <input type="password" id="password" placeholder="Password">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
 
-        <span class="forget">Forget Password?</span>
+            <a href="forgot_password.html" class="forget">Forget Password?</a>
 
-        <div class="remember">
-            <input type="checkbox"> Remember me
-        </div>
+            <div class="remember">
+                <input type="checkbox" name="remember"> Remember me
+            </div>
 
-        <button class="login-btn" id="loginBtn">Login</button>
+            <button class="login-btn" id="loginBtn" type="submit">Login</button>
 
-        <div class="bottom">
-            Don't have an account? <a href="register.html" id="registerLink">Register Now</a>
+            <div class="bottom">
+                Don't have an account? <a href="register.html" id="registerLink">Register Now</a>
+            </div>
         </div>
     </div>
-
-</div>
-
 <script src="signin.js"></script>
 </form>
 </body>
 </html>
+

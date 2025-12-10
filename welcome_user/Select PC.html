@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Select PC</title>
+<link rel="stylesheet" href="select_pc.css">
+</head>
+<body>
+
+   
+<!-- Sidebar -->
+<div class="sidebar">
+    <h3>Welcome, User</h3>
+    <a href="Dashboard.html">Dashboard</a>
+    <a href="select_pc.html" style="background:#d5bcbc;border-radius:10px;">Select PC</a>
+    <a href="Select Games.html">Select Games</a>
+    <a href="#">Select Devices</a>
+    <a href="FoodandDrinks.html">Foods & Drinks</a>
+    <a href="Duration.html">Duration</a>
+    <a href="Payment.html">Payment</a>
+    <a href="Notification.html">Notification</a>
+</div>
+
+
+<!-- Main Page -->
+<div class="main">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <input type="text" class="search-bar" placeholder="Search for PCs...">
+
+        <div class="profile-box">
+            <span>cyber123</span>
+            <img src="https://img.icons8.com/color/96/user-female-circle.png">
+        </div>
+    </div>
+
+    <!-- PC Selection Area -->
+    <div class="box">
+        <h2>Pick Computer</h2>
+
+        <div class="grid">
+             <div class="pc-box" data-pc="1" data-console="PS5" data-gpu="RTX 3060" data-room="VIP">
+                    <span class="pc-number">PC 1</span><img src="../images/xbox.png">
+             </div>
+
+            <div class="pc-box" data-pc="2" data-console="Xbox" data-gpu="GTX 1660" data-room="Regular">
+                <span class="pc-number">PC 2</span> <img src="../images/pcicon.png"> 
+            </div>
+            <div class="pc-box" data-pc="3" data-console="None" data-gpu="Integrated"> 
+                <span class="pc-number">PC 3</span><img src="../images/pcicon.png">
+            </div>
+            <div class="pc-box booked" data-pc="4"> <span class="pc-number">PC 4</span>
+                <img src="../images/pcicon.png">
+            </div>
+            <div class="pc-box booked" data-pc="5"> <span class="pc-number">PC 5</span>
+                <img src="../images/pcicon.png">
+            </div>
+
+            <div class="pc-box" data-pc="6"> <span class="pc-number">PC 6</span>
+                <img src="../images/pcicon.png">
+            </div>
+            <div class="pc-box" data-pc="7"> <span class="pc-number">PC 7</span>
+                <img src="../images/pcicon.png">
+            </div>
+            <div class="pc-box booked" data-pc="8"> <span class="pc-number">PC 8</span>
+                <img src="../images/pcicon.png">
+            </div>
+            <div class="pc-box" data-pc="9"> <span class="pc-number">PC 9</span>
+                <img src="../images/pcicon.png">
+            </div>
+
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <button class="btn back-btn" onclick="window.history.back()">⬅ Back</button>
+
+            <button class="btn next-btn" id="nextBtn" onclick="goNext()">Next ➜</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let selectedPC = null;
+let nextBtn = document.getElementById("nextBtn");
+
+document.querySelectorAll(".pc-box").forEach(pc => {
+    pc.addEventListener("click", function() {
+
+        if (pc.classList.contains("booked")) return;
+
+        // Remove previous selected highlight
+        document.querySelectorAll(".pc-box").forEach(p => p.classList.remove("selected"));
+
+        // Highlight the selected PC
+        this.classList.add("selected");
+        selectedPC = "PC-" + (Array.from(this.parentNode.children).indexOf(this) + 1);
+
+        // Enable the NEXT button
+        nextBtn.classList.add("active");
+    });
+});
+
+
+function goNext() {
+    if (!selectedPC) return;
+
+    // Store selected PC in local browser storage
+    localStorage.setItem("selectedPC", selectedPC);
+
+    // Go to next page
+    window.location.href = "Select Games.html";
+}
+
+</script>
+
+</body>
+</html>

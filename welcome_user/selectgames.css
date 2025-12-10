@@ -1,0 +1,130 @@
+ body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #3b1111;
+        color: white;
+        display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 250px;
+        background: #d3b4b4;
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 20px;
+        color: #000;
+    }
+
+    .menu-item {
+        padding: 12px;
+        border-radius: 8px;
+        color: #000;
+        cursor: pointer;
+        margin-bottom: 8px;
+    }
+
+    .menu-item.active {
+        background: #c5a8a8;
+    }
+
+    /* Main Content */
+    .content {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .search-bar {
+        width: 60%;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 20px;
+        border: none;
+        margin-bottom: 20px;
+    }
+
+    /* Top user section */
+    .top-user {
+        float: right;
+        margin-right: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    /* Featured Image */
+    .featured-section {
+        display: flex;
+        gap: 20px;
+    }
+
+    .featured-img img {
+        width: 350px;
+        border-radius: 12px;
+    }
+
+    /* In Library Card */
+    .library-box {
+        background: #a35757;
+        width: 350px;
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .library-box h3 {
+        margin-top: 0;
+    }
+
+    .game-entry {
+        display: flex;
+        margin-bottom: 12px;
+        background: #c57c7c;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .game-entry img {
+        width: 55px;
+        border-radius: 8px;
+        margin-right: 10px;
+    }
+
+    .tags span {
+        background: #fff;
+        color: #000;
+        padding: 3px 6px;
+        font-size: 10px;
+        border-radius: 6px;
+        margin-right: 4px;
+    }
+
+    /* You Might Like */
+    .recommend-section {
+        margin-top: 20px;
+    }
+
+    .recommend-row {
+        display: flex;
+        gap: 20px;
+    }
+
+    .recommend-row img {
+        width: 180px;
+        height: 110px;
+        border-radius: 10px;
+    }
+    /*
+.profile-box {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.profile-box img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 10px;
+}

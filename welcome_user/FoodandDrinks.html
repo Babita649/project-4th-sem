@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Drinks - Cyber Cafe</title>
+    <link rel="stylesheet" href="food.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Welcome, User</h3>
+        <a href="Dashboard.html">Dashboard</a>
+        <a href="Select PC.html">Select PC</a>
+        <a href="Select Games.html">Select Games</a>
+        <a href="Duration.html">Duration</a>
+        <a href="FoodandDrinks.html">Foods & Drinks</a>
+        <a href="Payment.html">Payment</a>
+        <a href="Notification.html">Notification</a>
+    </div>
+    <div class="container">
+        <h2>Select Food & Drinks</h2>
+
+        <div class="food-list">
+            <div class="food-item">
+                <span>Coffee</span>
+                <span>₹30</span>
+                <input type="number" min="0" value="0" data-price="30">
+            </div>
+            <div class="food-item">
+                <span>Tea</span>
+                <span>₹20</span>
+                <input type="number" min="0" value="0" data-price="20">
+            </div>
+            <div class="food-item">
+                <span>Sandwich</span>
+                <span>₹50</span>
+                <input type="number" min="0" value="0" data-price="50">
+            </div>
+            <div class="food-item">
+                <span>Soft Drink</span>
+                <span>₹25</span>
+                <input type="number" min="0" value="0" data-price="25">
+            </div>
+        </div>
+
+        <div class="total">
+            <strong>Total: ₹<span id="totalAmount">0</span></strong>
+        </div>
+
+        <button onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+
+    <script>
+        const foodItems = document.querySelectorAll('.food-item input');
+const totalAmountSpan = document.getElementById('totalAmount');
+
+function calculateTotal() {
+    let total = 0;
+    foodItems.forEach(input => {
+        let qty = parseInt(input.value);
+        let price = parseInt(input.dataset.price);
+        total += qty * price;
+    });
+    totalAmountSpan.innerText = total;
+}
+
+// Add event listeners to update total dynamically
+foodItems.forEach(input => {
+    input.addEventListener('change', calculateTotal);
+});
+
+// Redirect to payment page with selected items
+function proceedToPayment() {
+    let order = [];
+    foodItems.forEach(input => {
+        let qty = parseInt(input.value);
+        if (qty > 0) {
+            let name = input.parentElement.querySelector('span').innerText;
+            order.push({ name, qty, price: parseInt(input.dataset.price) });
+        }
+    });
+
+    if(order.length === 0){
+        alert("Please select at least one item.");
+        return;
+    }
+
+    // Store order in localStorage to use in payment page
+    localStorage.setItem("foodOrder", JSON.stringify(order));
+
+    // Redirect to payment page
+    window.location.href = "Payment.html";
+}
+
+    </script>
+</body>
+</html>

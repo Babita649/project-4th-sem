@@ -69,11 +69,20 @@ input{
 }
 
 .forget{
-    float: right;
-    margin-top: -20px;
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: none;
     font-size: 14px;
-    color: #ddd;
 }
+
+.forget:hover {
+    text-decoration: underline;
+}
+
 
 .login-btn{
     width: 100%;
