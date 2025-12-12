@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+}
+
+.container {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    border-right: 2px solid #e0e0e0;
+    padding: 20px;
+    height: 100vh;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #555;
+}
+
+.sidebar li.active {
+    background: #f0f0f0;
+    border-radius: 8px;
+    padding-left: 10px;
+}
+
+.profile {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.profile .icon {
+    width: 40px;
+    height: 40px;
+    background: #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Main Content */
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    width: 180px;
+    padding: 20px;
+    border: 2px solid #dcdcdc;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.box.clickable:hover {
+    background: #f7f7f7;
+    cursor: pointer;
+}
+
+.large {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.occupied-label {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.pc {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.free {
+    background: #e6e6e6;
+}
+
+.busy {
+    background: #b30000;
+}
+
+/* Popup */
+.popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+    animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}

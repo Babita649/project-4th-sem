@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>Welcome, Admin</h3>
+
+        <ul class="menu">
+            <li class="active"><span>🏠</span> Dashboard</li>
+            <li><span>💻</span> PC Selected</li>
+            <li><span>🎮</span> Games</li>
+            <li><span>🕹️</span> Controller</li>
+            <li><span>🍔</span> Food Menus</li>
+            <li><span>⏳</span> Duration</li>
+            <li><span>💳</span> Payment</li>
+        </ul>
+
+        <div class="admin-footer">
+            <div class="circle">A</div>
+            <p>Admin</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+        
+        <h1>Dashboard</h1>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">👤</div>
+                <div>
+                    <p>Total User</p>
+                    <h2>7005</h2>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon">🖥️</div>
+                <div>
+                    <p>Total PCs</p>
+                    <h2>100</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+<div class="actions">
+    <button class="btn" id="addUserBtn">Add User</button>
+    <button class="btn" id="addBalanceBtn">Add Balance</button>
+</div>
+
+<!-- ADD USER MODAL -->
+<div class="modal" id="addUserModal">
+    <div class="modal-content">
+        <h2>Add New User</h2>
+
+        <label>Full Name</label>
+        <input type="text" id="newUserName" placeholder="Enter full name">
+
+        <label>Phone</label>
+        <input type="text" id="newUserPhone" placeholder="Enter phone number">
+
+        <label>Computer No.</label>
+        <input type="number" id="newUserPC" placeholder="Enter PC number">
+
+        <label>Duration</label>
+        <input type="text" id="newUserDuration" placeholder="e.g., 1 hour">
+
+        <button class="saveBtn" onclick="saveUser()">Save User</button>
+        <button class="closeBtn" onclick="closeUserModal()">Close</button>
+    </div>
+</div>
+
+<!-- ADD BALANCE MODAL -->
+<div class="modal" id="addBalanceModal">
+    <div class="modal-content">
+        <h2>Add Balance</h2>
+
+        <label>User Phone</label>
+        <input type="text" id="balancePhone" placeholder="Enter user's phone">
+
+        <label>Amount</label>
+        <input type="number" id="balanceAmount" placeholder="Enter amount">
+
+        <button class="saveBtn" onclick="saveBalance()">Add Balance</button>
+        <button class="closeBtn" onclick="closeBalanceModal()">Close</button>
+    </div>
+</div>
+
+<script>
+    // OPEN MODALS
+    document.getElementById("addUserBtn").onclick = function() {
+        document.getElementById("addUserModal").style.display = "flex";
+    };
+
+    document.getElementById("addBalanceBtn").onclick = function() {
+        document.getElementById("addBalanceModal").style.display = "flex";
+    };
+
+    // CLOSE MODALS
+    function closeUserModal() {
+        document.getElementById("addUserModal").style.display = "none";
+    }
+    function closeBalanceModal() {
+        document.getElementById("addBalanceModal").style.display = "none";
+    }
+
+    // SAVE USER — You can connect to PHP here
+    function saveUser() {
+        const name = document.getElementById("newUserName").value.trim();
+        const phone = document.getElementById("newUserPhone").value.trim();
+        const pc = document.getElementById("newUserPC").value.trim();
+        const duration = document.getElementById("newUserDuration").value.trim();
+
+        if (!name || !phone || !pc || !duration) {
+            alert("Please fill all fields.");
+            return;
+        }
+
+        alert("User added successfully!");
+
+        // TODO: Send data to PHP using AJAX or form submission
+
+        closeUserModal();
+    }
+
+    // SAVE BALANCE — You can connect to PHP here
+    function saveBalance() {
+        const phone = document.getElementById("balancePhone").value.trim();
+        const amount = document.getElementById("balanceAmount").value.trim();
+
+        if (!phone || !amount) {
+            alert("Please fill all fields.");
+            return;
+        }
+
+        alert("Balance added!");
+
+        // TODO: Send data to PHP using AJAX or form submission
+
+        closeBalanceModal();
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target.classList.contains("modal")) {
+            event.target.style.display = "none";
+        }
+    };
+</script>
+
+</body>
+</html>
