@@ -1,81 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Café Dashboard</title>
+<link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body>
+<div class="main-container">
 
-    <div class="dashboard-container">
-        <nav class="sidebar">
-            <h2 class="welcome-text">Welcome, User</h2>
-            
-            <a href="Dashboard.html" class="nav-item active" data-tab="dashboard">Dashboard</a>
-            <a href="Select PC.html" class="nav-item" data-tab="select-pc">Select PC</a>
-            <a href="Select Games.html" class="nav-item" data-tab="select-games">Select Games</a>
-            <a href="FoodandDrinks.html" class="nav-item" data-tab="foods-drinks">Foods & Drinks</a>
-            <a href="#" class="nav-item" data-tab="duration">Duration</a>
-            <a href="#" class="nav-item" data-tab="payment">Payment</a>
-            <a href="#" class="nav-item" data-tab="notification">Notification</a>
-        </nav>
-
-        <main class="content-area">
-            <div class="user-info">
-                <p>cyber123 <span class="avatar"></span></p>
-            </div>
-            
-            <div class="content-box">
-                <div id="dashboard" class="tab-content active">
-                    <h3>Dashboard Overview</h3>
-                    <p>Welcome to your personal dashboard. Select an option from the left.</p>
-                </div>
-                
-                <div id="select-pc" class="tab-content">
-                    <h3>Select PC</h3>
-                    <div class="inner-box">
-                        <p>Available PC options will go here. You can add a list, form, or selection grid.</p>
-                        <button>PC 01</button>
-                        <button>PC 02</button>
-                    </div>
-                </div>
-                
-                <div id="select-games" class="tab-content">
-                    <h3>Select Games</h3>
-                    <div class="inner-box">
-                        <p>Game selection list/form goes here.</p>
-                        <label><input type="checkbox"> Dota 2</label><br>
-                        <label><input type="checkbox"> Valorant</label>
-                    </div>
-                </div>
-
-                <div id="duration" class="tab-content">
-                    <h3>Duration</h3>
-                    <div class="inner-box">
-                        <p>Set your playtime duration.</p>
-                        <input type="number" placeholder="Enter hours">
-                        <button>Confirm Duration</button>
-                    </div>
-                </div>
-
-                <div id="select-devices" class="tab-content">
-                    <h3>Select Devices</h3>
-                    <div class="inner-box">
-                        <p>Device rental options (Keyboard, Headset, etc.).</p>
-                    </div>
-                </div>
-
-                <div id="payment" class="tab-content">
-                    <h3>Payment</h3>
-                    <div class="inner-box">
-                        <p>Payment details and options will be displayed here.</p>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>Welcome, User</h3>
+        <div class="menu">
+            <a href="Dashboard.html">🏠 Dashboard</a>
+            <a href="Select PC.html">💻 Select PC</a>
+            <a href="Select Games.html">🎮 Select Games</a>
+            <a href="FoodandDrinks.html">🍔 Food & Drinks</a>
+            <a href="Duration.html">⏳ Duration</a>
+            <a href="Payment.html">💳 Payment</a>
+            <a href="Notification.html">🔔 Notifications</a>
+        </div>
     </div>
 
-    
+    <!-- MAIN CONTENT -->
+    <div class="main">
+      <div class="dashboard-header">
+    <h2>Dashboard</h2>
+
+    <div class="header-right">
+        <!-- Notification Bell -->
+        <div class="notification">
+            🔔
+            <span class="badge">3</span>
+        </div>
+
+        <!-- Profile -->
+        <div class="profile-wrapper">
+            <div class="profile-box" onclick="toggleProfile()">
+                <span>cyber123</span>
+                <img src="https://img.icons8.com/color/96/user-female-circle.png">
+            </div>
+
+            <!-- Dropdown -->
+            <div class="profile-dropdown" id="profileDropdown">
+                <a href="#">👤 My Profile</a>
+                <a href="#">⚙ Settings</a>
+                <a href="../signup.html">🚪 Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div class="icon-grid">
+            <div class="icon-box" onclick="window.location.href='Select PC.html'">
+                <img src="../images/pcicon.png">
+                <p>Select PC</p>
+            </div>
+
+            <div class="icon-box" onclick="window.location.href='Select Games.html'">
+                <img src="../images/select games.jpg">
+                <p>Select Games</p>
+            </div>
+            <div class="icon-box" onclick="window.location.href='FoodandDrinks.html'">
+                <img src="../images/food.png">
+                <p>Food & Drinks</p>
+            </div>
+
+            <div class="icon-box" onclick="window.location.href='Duration.html'">
+                <img src="https://img.icons8.com/ios/100/clock.png">
+                <p>Duration</p>
+            </div>
+
+            <div class="icon-box" onclick="window.location.href='Payment.html'">
+                <img src="https://img.icons8.com/ios/100/wallet.png">
+                <p>Payment</p>
+            </div>
+            <div class="icon-box" onclick="window.location.href='Notification.html' ">
+                
+                <p>Notifications</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+  <script src="dashboard.js"></script>
 </body>
 </html>
+

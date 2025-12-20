@@ -6,21 +6,21 @@
 <link rel="stylesheet" href="select_pc.css">
 </head>
 <body>
+<div class="main-container">
 
-   
-<!-- Sidebar -->
-<div class="sidebar">
-    <h3>Welcome, User</h3>
-    <a href="Dashboard.html">Dashboard</a>
-    <a href="select_pc.html" style="background:#d5bcbc;border-radius:10px;">Select PC</a>
-    <a href="Select Games.html">Select Games</a>
-    <a href="FoodandDrinks.html">Foods & Drinks</a>
-    <a href="Duration.html">Duration</a>
-    <a href="Payment.html">Payment</a>
-    <a href="Notification.html">Notification</a>
-</div>
-
-
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>Welcome, User</h3>
+        <div class="menu">
+            <a href="Dashboard.html">🏠 Dashboard</a>
+            <a href="Select PC.html">💻 Select PC</a>
+            <a href="Select Games.html">🎮 Select Games</a>
+            <a href="Food and Drinks.html">🍔 Food & Drinks</a>
+            <a href="Duration.html">⏳ Duration</a>
+            <a href="Payment.html">💳 Payment</a>
+            <a href="Notification.html">🔔 Notifications</a>
+        </div>
+    </div>
 <!-- Main Page -->
 <div class="main">
 
@@ -73,15 +73,14 @@
 
         <!-- Buttons -->
         <div class="buttons">
-            <button class="btn back-btn" onclick="window.history.back()">⬅ Back</button>
-
+            <button class="btn back-btn" onclick="location.href='Dashboard.html'">⬅ Back</button>
             <button class="btn next-btn" id="nextBtn" onclick="goNext()">Next ➜</button>
         </div>
 
     </div>
 
 </div>
-
+</div>
 
 <script>
 

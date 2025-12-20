@@ -1,43 +1,57 @@
 body {
-            font-family: Arial, sans-serif;
-            background-color: #2d0000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-      .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 240px;
-    height: 100%;
-    background: #e3cfcf;
-    padding-top: 20px;
-}
-.sidebar h3 {
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-.sidebar a {
-    display: block;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: #000;
-    font-size: 15px;
-}
-.sidebar a:hover {
-    background: #d5bcbc;
-    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    background-color: #2d0000;
+    margin: 0;
+    display: flex;           /* Make sidebar + container horizontal */
+    height: 100vh;
 }
 
-        .container {
-            background: white;
-            padding: 30px 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            text-align: center;
-        }
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background: #cccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar h3 {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #333;
+}
+
+/* Menu */
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: black;
+    border-radius: 6px;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.menu a:hover {
+    background: #c17b7b;
+    color: #fff;
+}
+
+/* Container */
+.container {
+    flex: 1;                   /* Take remaining width */
+    background: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    margin: 80px;              /* Optional spacing */
+    /*overflow-y: auto;*/
+    height: 30vh;
+}
 
         h2 {
             margin-bottom: 20px;
@@ -78,3 +92,34 @@ body {
         #proceed-btn:hover {
             background-color: #e64a19;
         }
+.navigation-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation-buttons button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.back-btn {
+    background-color: #757575;
+}
+
+.back-btn:hover {
+    background-color: #616161;
+}
+
+.next-btn {
+    background-color: #4CAF50;
+}
+
+.next-btn:hover {
+    background-color: #45a049;
+}

@@ -1,75 +1,106 @@
 <?php
 session_start();
 include 'db.php';
+
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-// Redirect if already logged in
-if (isset($_SESSION['email'])) {
-    header("Location: welcome_user/Dashboard.php");
-    exit;
+// Initialize variables
+$email_error = '';
+$password_error = '';
+$email_value = '';
+
+// Clear any previous flash messages on page load
+if (!isset($_POST['email'])) {
+    unset($_SESSION['login_error']);
 }
 
-// Only allow POST request
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: signin.html");
-    exit;
-}
+// Handle POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-// Get form values
-$email = trim($_POST['email'] ?? '');
-$password = trim($_POST['password'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $password = trim($_POST['password'] ?? '');
+    $email_value = $email; // to keep in form if login fails
 
-// Basic empty field check
-if ($email === '' || $password === '') {
-    header("Location: signin.html?error=empty_fields");
-    exit;
-}
-
-// Email format validation (same as JS)
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header("Location: signin.html?error=invalid_email");
-    exit;
-}
-
-// Password validation — at least 6 chars + 1 capital letter
-if (!preg_match('/^(?=.*[A-Z]).{6,}$/', $password)) {
-    header("Location: signin.html?error=weak_password");
-    exit;
-}
-
-try {
-    // Fetch user
-    $stmt = $conn->prepare("SELECT id, fullname, email, password FROM users WHERE email = ? LIMIT 1");
+    // Prepare statement
+    $stmt = $conn->prepare("SELECT id, email, password FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
+
+    // Bind results
+    $stmt->bind_result($user_id, $user_email, $user_password);
+
+    if ($stmt->fetch()) {
+        // User exists, verify password
+        if (password_verify($password, $user_password)) {
+            session_regenerate_id(true);
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['email'] = $user_email;
+
+            // Clear POST data and flash messages
+            $_POST = [];
+            unset($_SESSION['login_error']);
+            $email_error = '';
+            $password_error = '';
+            $email_value = '';
+
+            // Redirect to dashboard
+            header("Location: welcome_user/dashboard.php");
+            exit;
+        } else {
+            $password_error = "Incorrect password";
+        }
+    } else {
+        // No user found
+        $email_error = "User not found";
+    }
+
     $stmt->close();
-
-    // If no user found → redirect to register
-    if (!$user) {
-        header("Location: register.html?error=not_registered");
-        exit;
-    }
-
-    // Password check (hashed)
-    if (!password_verify($password, $user['password'])) {
-        header("Location: signin.html?error=invalid_password");
-        exit;
-    }
-
-    // Login success → create session
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['fullname'] = $user['fullname'];
-    $_SESSION['email'] = $user['email'];
-
-    // Redirect to dashboard
-    header("Location: welcome_user/Dashboard.html");
-    exit;
-
-} catch (mysqli_sql_exception $e) {
-    error_log($e->getMessage());
-    header("Location: signin.html?error=server_error");
-    exit;
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign In</title>
+<link rel="stylesheet" href="signin.css">
+</head>
+<body>
+<form id="signinForm" method="POST" action="signin.php">
+    <div class="container">
+        <div class="left"></div>
+        <div class="right">
+            <h2>Sign in</h2>
+
+            <!-- Email -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required value="<?php echo htmlspecialchars($email_value); ?>">
+            <?php if ($email_error): ?>
+                <div class="error" style="color:red; margin-bottom:10px;"><?php echo htmlspecialchars($email_error); ?></div>
+            <?php endif; ?>
+
+            <!-- Password -->
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <?php if ($password_error): ?>
+                <div class="error" style="color:red; margin-bottom:10px;"><?php echo htmlspecialchars($password_error); ?></div>
+            <?php endif; ?>
+
+            <a href="forgot_password.html" class="forget">Forget Password?</a>
+
+            <div class="remember">
+                <input type="checkbox" name="remember"> Remember me
+            </div>
+
+            <button class="login-btn" id="loginBtn" type="submit">Login</button>
+
+            <div class="bottom">
+                Don't have an account? <a href="register.html" id="registerLink">Register Now</a>
+            </div>
+        </div>
+    </div>
+    <script src="signin.js"></script>
+</form>
+</body>
+</html>
+

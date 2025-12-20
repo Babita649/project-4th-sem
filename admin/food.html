@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food and Drinks</title>
+    <link rel="stylesheet" href="food.css">
+</head>
+<body>
+    
+   <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>Welcome, Admin</h3>
+
+        <ul class="menu">
+            <li><span>🏠 </span>Dashboard</li>
+            <li><span>💻</span> PC Selected</li>
+            <li><span>🎮</span> Games</li>
+            <li><span>🍔</span>Food Menus</li>
+            <li><span>⏳</span> Duration</li>
+            <li><span>💳</span> Payment</li>
+             <li><span>💳</span> Notification</li>
+        </ul>
+
+        <div class="admin-footer">
+            <div class="circle">A</div>
+            <p>Admin</p>
+        </div>
+    </div>
+
+
+<div class="content" id="foodDrinksSection">
+
+    <h2 id="foodTitle">Food & Drinks System</h2>
+
+    <!-- ACTION BUTTONS -->
+    <div class="action-buttons" id="foodActionButtons">
+        <button id="addFoodBtn" name="add_food">
+            ➕ Add Food
+        </button>
+
+        <button id="removeFoodBtn" name="remove_food">
+            ➖ Remove Food
+        </button>
+    </div>
+
+    <!-- FOOD LIST -->
+    <div class="food-grid" id="foodGrid">
+
+        <!-- FOOD ITEM -->
+        <div class="food-card" data-food-id="1">
+            <h4 class="food-name" id="foodName_1">Burger</h4>
+
+            <p class="food-price">
+                Rs.
+                <span class="food-amount" id="foodPrice_1">250</span>
+            </p>
+
+            <div class="food-actions">
+                <button
+                    class="edit-btn"
+                    name="edit_price"
+                    id="editPriceBtn_1"
+                    data-food-id="1">
+                    Edit Price
+                </button>
+
+                <button
+                    class="delete-btn"
+                    name="delete_food"
+                    id="deleteFoodBtn_1"
+                    data-food-id="1">
+                    Remove
+                </button>
+            </div>
+        </div>
+
+        <!-- FOOD ITEM -->
+        <div class="food-card" data-food-id="2">
+            <h4 class="food-name" id="foodName_2">Cold Coffee</h4>
+
+            <p class="food-price">
+                Rs.
+                <span class="food-amount" id="foodPrice_2">180</span>
+            </p>
+
+            <div class="food-actions">
+                <button
+                    class="edit-btn"
+                    name="edit_price"
+                    id="editPriceBtn_2"
+                    data-food-id="2">
+                    Edit Price
+                </button>
+
+                <button
+                    class="delete-btn"
+                    name="delete_food"
+                    id="deleteFoodBtn_2"
+                    data-food-id="2">
+                    Remove
+                </button>
+            </div>
+        </div>
+
+        <!-- FOOD ITEM -->
+        <div class="food-card" data-food-id="3">
+            <h4 class="food-name" id="foodName_3">French Fries</h4>
+
+            <p class="food-price">
+                Rs.
+                <span class="food-amount" id="foodPrice_3">150</span>
+            </p>
+
+            <div class="food-actions">
+                <button
+                    class="edit-btn"
+                    name="edit_price"
+                    id="editPriceBtn_3"
+                    data-food-id="3">
+                    Edit Price
+                </button>
+
+                <button
+                    class="delete-btn"
+                    name="delete_food"
+                    id="deleteFoodBtn_3"
+                    data-food-id="3">
+                    Remove
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -3,34 +3,45 @@
         font-family: Arial, sans-serif;
         background: #3b1111;
         color: white;
-        display: flex;
     }
+/* MAIN LAYOUT */
+.main-container {
+    display: flex;
+    min-height: 100vh;
+}
+    /* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background: #cccc;
+    height: 100vh;
+    padding: 20px;  
+}
 
-    /* Sidebar */
-    .sidebar {
-        width: 250px;
-        background: #d3b4b4;
-        height: 100vh;
-        padding: 20px;
-        box-sizing: border-box;
-    }
+.sidebar h3 {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #333;
+}
 
-    .sidebar h2 {
-        margin-bottom: 20px;
-        color: #000;
-    }
+/* MENU */
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 10px;
+    margin-bottom: 5px;
+    text-decoration: none;          /* REMOVE UNDERLINE */
+    color: black;
+    border-radius: 6px;
+    font-size: 18px;
+    transition: background 0.3s;
+}
 
-    .menu-item {
-        padding: 12px;
-        border-radius: 8px;
-        color: #000;
-        cursor: pointer;
-        margin-bottom: 8px;
-    }
-
-    .menu-item.active {
-        background: #c5a8a8;
-    }
+.menu a:hover {
+    background: #c17b7b;
+    color: #fff;
+}
 
     /* Main Content */
     .content {
@@ -127,4 +138,35 @@
     height: 20px;
     border-radius: 50%;
     margin-left: 10px;
+}*/
+.selected {
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+.nav-buttons button.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.game-entry, .featured-img, .recommend-row img {
+    cursor: pointer;
+}
+/* Only disable Next button initially */
+#btnNext {
+    opacity: 0.4;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* Enable Next when active */
+#btnNext.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Highlight selected game */
+.selected {
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    background-color: rgba(76, 175, 80, 0.1);
 }

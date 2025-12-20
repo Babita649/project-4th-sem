@@ -7,98 +7,130 @@
 <link rel="stylesheet" href="selectgames.css">
 </head>
 <body>
+<div class="main-container">
 
-<div class="sidebar">
-    <h2>Welcome, User</h2>
-    <div class="menu-item" href="Dashboard.html">Dashboard</div>
-    <div class="menu-item" href="Select PC.html">Select PC</div>
-    <div class="menu-item active" href="Select Games.html">Select Games</div>
-    <div class="menu-item" href="Duration.html">Duration</div>
-    <div class="menu-item" href="FoodandDrinks.html">Foods & Drinks</div>
-    <div class="menu-item" href="Payment.html">Payment</div>
-    <div class="menu-item" href="Notification.html">Notification</div>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>Welcome, User</h3>
+        <div class="menu">
+            <a href="Dashboard.html">🏠 Dashboard</a>
+            <a href="Select PC.html">💻 Select PC</a>
+            <a href="Select Games.html">🎮 Select Games</a>
+            <a href="Food and Drinks.html">🍔 Food & Drinks</a>
+            <a href="Duration.html">⏳ Duration</a>
+            <a href="Payment.html">💳 Payment</a>
+            <a href="Notification.html">🔔 Notifications</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <input type="text" placeholder="Search for games." class="search-bar" />
+
+        <!-- Featured Section -->
+        <div class="featured-section">
+            <div class="featured-img" data-name="Featured Game 1" data-tags="Action,Adventure" data-img="../images/game1.jpg">
+                <img src="../images/game1.jpg" alt="Games" />
+            </div>
+
+            <div class="library-box">
+                <h3>In Library</h3>
+
+                <div class="game-entry" data-name="GHOST OF YOTEI" data-tags="Physics-based,3D,Adventure" data-img="../images/game2.jpg">
+                    <img src="../images/game2.jpg" />
+                    <div>
+                        <strong>GHOST OF YOTEI</strong><br />
+                        <div class="tags">
+                            <span>Physics-based</span>
+                            <span>3D</span>
+                            <span>Adventure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-entry" data-name="GHOST OF TSUSHIMA" data-tags="Action,Adventure" data-img="../images/game3.jpg">
+                    <img src="../images/game3.jpg" />
+                    <div>
+                        <strong>GHOST OF TSUSHIMA</strong><br />
+                        <div class="tags">
+                            <span>Action</span>
+                            <span>Adventure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-entry" data-name="FORZA HORIZON 5" data-tags="Open-world,Racing" data-img="../images/game4.jpg">
+                    <img src="../images/game4.jpg" />
+                    <div>
+                        <strong>FORZA HORIZON 5</strong><br />
+                        <div class="tags">
+                            <span>Open-world</span>
+                            <span>Racing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommend Section -->
+        <div class="recommend-section">
+            <h3>You Might Like this</h3>
+            <div class="recommend-row">
+                <img src="../images/game5.jpg" data-name="Game 5" data-tags="Adventure" data-img="../images/game5.jpg"/>
+                <img src="../images/game6.jpg" data-name="Game 6" data-tags="Racing" data-img="../images/game6.jpg"/>
+                <img src="../images/game7.jpg" data-name="Game 7" data-tags="Action" data-img="../images/game7.jpg"/>
+                <img src="../images/game8.jpg" data-name="Game 8" data-tags="Puzzle" data-img="../images/game8.jpg"/>
+            </div>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons" style="margin-top:30px; display:flex; justify-content:flex-end; gap:15px; padding-right:20px;">
+            <button id="btnBack" style="padding:12px 20px; background:#c57c7c; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;">⬅ Back</button>
+            <button id="btnNext" style="padding:12px 20px; background:#c57c7c; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;">Next ➜</button>
+        </div>
+    </div>
 </div>
-
-<div class="content">
-    <input type="text" placeholder="Search for games." class="search-bar" />
-
-    <div class="featured-section">
-        <div class="featured-img" onclick="selectGame(this)">
-            <img src="../images/game1.jpg" alt="Games" />
-        </div>
-
-        <div class="library-box">
-            <h3>In Library</h3>
-
-            <div class="game-entry" onclick="selectGame(this)">
-                <img src="../images/game2.jpg" />
-                <div>
-                    <strong>GHOST OF YOTEI</strong><br />
-                    <div class="tags">
-                        <span>Physics-based</span>
-                        <span>3D</span>
-                        <span>Adventure</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="game-entry" onclick="selectGame(this)">
-                <img src="../images/game3.jpg" />
-                <div>
-                    <strong>GHOST OF TSUSHIMA</strong><br />
-                    <div class="tags">
-                        <span>Action</span>
-                        <span>Adventure</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="game-entry" onclick="selectGame(this)">
-                <img src="../images/game4.jpg" />
-                <div>
-                    <strong>FORZA HORIZON 5</strong><br />
-                    <div class="tags">
-                        <span>Open-world</span>
-                        <span>Racing</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="recommend-section">
-        <h3>You Might Like this</h3>
-        <div class="recommend-row" onclick="selectGame(this)">
-            <img src="../images/game5.jpg" />
-            <img src="../images/game6.jpg" />
-            <img src="../images/game7.jpg" />
-            <img src="../images/game8.jpg" />
-        </div>
-    </div>
-    
-    <div class="nav-buttons" style="margin-top:30px; display:flex; justify-content:flex-end; gap:15px; padding-right:20px;">
-        <button id="btnBack" style="padding:12px 20px; background:#c57c7c; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;">⬅ Back</button>
-        <button id="btnNext" style="padding:12px 20px; background:#c57c7c; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;">Next ➜</button>
-    </div>
 
 <script>
-        let selected = null;
-      function selectGame(el){
-      if(selected) selected.classList.remove('selected');
-     el.classList.add('selected');
-     selected = el;
-    const nextBtn = document.getElementById('btnNext');
-   nextBtn.style.opacity = '1';
-      nextBtn.style.pointerEvents = 'auto';
-      }
-   document.getElementById('btnBack').onclick = ()=>{
+// Selected game object
+let selectedGame = null;
+
+// Make all games clickable
+document.querySelectorAll('.game-entry, .featured-img, .recommend-row img').forEach(el => {
+    el.addEventListener('click', function() {
+        // Remove previous selection
+        if(selectedGame) selectedGame.classList.remove('selected');
+        el.classList.add('selected');
+        selectedGame = el;
+
+        // Enable Next button
+        const nextBtn = document.getElementById('btnNext');
+        nextBtn.classList.add('active');
+    });
+});
+
+// Back button goes to Select PC page
+document.getElementById('btnBack').onclick = () => {
     window.location.href = "Select PC.html";
+};
+
+// Next button action
+document.getElementById('btnNext').onclick = () => {
+    if(!selectedGame) return;
+
+    // Prepare selected game data
+    const gameData = {
+        name: selectedGame.dataset.name || selectedGame.alt || '',
+        tags: selectedGame.dataset.tags || '',
+        image: selectedGame.dataset.img || ''
     };
-    document.getElementById('btnNext').onclick = ()=>{
-    if(selected)
-    alert('Proceeding with selected game: ' + selected.innerText.trim());
-     };
-    </script>
-</div>
+
+    // Save in localStorage for now (can be sent to server later)
+    localStorage.setItem('selectedGame', JSON.stringify(gameData));
+
+    // Redirect to next page (e.g., Duration or Food & Drinks)
+    window.location.href = "Duration.html";
+};
+</script>
 </body>
 </html>
+

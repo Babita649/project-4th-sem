@@ -36,24 +36,12 @@ body {
     border-radius: 8px;
     padding-left: 10px;
 }
-
-.profile {
+  /* Admin footer */
+.admin-footer {
     position: absolute;
     bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.profile .icon {
-    width: 40px;
-    height: 40px;
-    background: #ddd;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    margin-right: 10px;
+    left: 20px;
+    text-align: center;
 }
 
 /* Main Content */

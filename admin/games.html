@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Games Dashboard</title>
+    <link rel="stylesheet" href="games.css">
+</head>
+<body>
+
+<div class="container">
+        <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>Welcome, Admin</h3>
+
+        <ul class="menu">
+            <li><span>🏠 </span>Dashboard</li>
+            <li><span>💻</span> PC Selected</li>
+            <li><span>🎮</span> Games</li>
+            <li><span>🍔</span>Food Menus</li>
+            <li><span>⏳</span> Duration</li>
+            <li><span>💳</span> Payment</li>
+             <li><span>💳</span> Notification</li>
+        </ul>
+
+        <div class="admin-footer">
+            <div class="circle">A</div>
+            <p>Admin</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <h2>Available Games</h2>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-box">
+                <strong>2</strong>
+                <span>Games in use</span>
+            </div>
+            <div class="stat-box">
+                <strong>8</strong>
+                <span>Games in system</span>
+            </div>
+        </div>
+
+        <!-- Games Grid -->
+        <div class="games-grid">
+
+            <div class="game-card" onclick="openGame('Dragon Ball Z')">
+                <img src="../images/game1.jpg">
+            </div>
+
+            <div class="game-card" onclick="openGame('Mortal Kombat')">
+                <img src="../images/game2.jpg">
+            </div>
+
+            <div class="game-card" onclick="openGame('God of War')">
+                <img src="../images/game3.jpg">
+            </div>
+
+            <div class="game-card" onclick="openGame('Spider-Man')">
+                <img src="https://i.imgur.com/G6K0U4M.jpg">
+            </div>
+
+            <div class="game-card" onclick="openGame('Chess Ultra')">
+                <img src="https://i.imgur.com/JHkzL3A.jpg">
+            </div>
+
+            <div class="game-card" onclick="openGame('Spider-Man 2')">
+                <img src="https://i.imgur.com/8pJdUjC.jpg">
+            </div>
+
+            <div class="game-card" onclick="openGame('Human Fall Flat')">
+                <img src="https://i.imgur.com/4n6PLsO.jpg">
+            </div>
+
+            <div class="game-card" onclick="openGame('Solasta')">
+                <img src="https://i.imgur.com/8tGONRC.jpg">
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <h3 id="gameTitle"></h3>
+        <p id="gameDesc"></p>
+    </div>
+</div>
+
+<script src="games.js"></script>
+</body>
+</html>

@@ -18,3 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+function toggleProfile() {
+    const dropdown = document.getElementById("profileDropdown");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
+
+// Close dropdown when clicking outside
+document.addEventListener("click", function(e) {
+    const profile = document.querySelector(".profile-wrapper");
+    if (!profile.contains(e.target)) {
+        document.getElementById("profileDropdown").style.display = "none";
+    }
+});
+

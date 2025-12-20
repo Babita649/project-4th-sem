@@ -1,42 +1,57 @@
 body {
     font-family: Arial, sans-serif;
     background-color:#2d0000;
+    margin: 0;
+}
+/* MAIN LAYOUT */
+.main-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
 }
 
+/* Sidebar */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 240px;
-    height: 100%;
-    background: #e3cfcf;
-    padding-top: 20px;
+    width: 300px;
+    background: #cccc;
+    padding: 20px;
+    box-sizing: border-box;
 }
+
 .sidebar h3 {
-    padding-left: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #333;
 }
-.sidebar a {
-    display: block;
-    padding: 12px 20px;
+
+/* Menu */
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 10px;
+    margin-bottom: 5px;
     text-decoration: none;
     color: #000;
-    font-size: 15px;
+    border-radius: 6px;
+    font-size: 18px;
+    transition: background 0.3s;
 }
-.sidebar a:hover {
-    background: #d5bcbc;
-    border-radius: 10px;
+
+.menu a:hover {
+    background: #c17b7b;
+    color: #fff;
 }
+
 .container {
     background: #fff;
-    padding: 30px;
+    padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    width: 400px;
+    text-align: center;
+    margin: 80px;
+    height: 50vh;
+    width: 500px;
 }
 
 h2 {

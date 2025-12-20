@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="duration.css">
 </head>
 <body>
+  <body>
     <div class="sidebar">
         <h3>Welcome, User</h3>
-        <a href="Dashboard.html">Dashboard</a>
-        <a href="Select PC.html">Select PC</a>
-        <a href="Select Games.html">Select Games</a>
-        <a href="Duration.html">Duration</a>
-        <a href="FoodandDrinks.html">Foods & Drinks</a>
-        <a href="Payment.html">Payment</a>
-        <a href="Notification.html">Notification</a>
+        <div class="menu">
+            <a href="Dashboard.html">🏠 Dashboard</a>
+            <a href="Select PC.html">💻 Select PC</a>
+            <a href="Select Games.html">🎮 Select Games</a>
+            <a href="Duration.html">⏳ Duration</a>
+            <a href="FoodandDrinks.html">🍔 Food & Drinks</a>
+            <a href="Payment.html">💳 Payment</a>
+            <a href="Notification.html">🔔 Notifications</a>
+        </div>
     </div>
-
     <div class="container">
         <h2>Select Duration</h2>
         <form action="duration.php" method="POST" id="durationForm">
@@ -30,8 +32,11 @@
             <input type="hidden" name="duration" id="durationInput">
             <button type="submit" id="proceed-btn">Proceed</button>
         </form>
+    <div class="navigation-buttons">
+       <button type="button" class="back-btn" onclick="location.href='Select Games.html'">⬅ Back</button>
+       <button type="button" class="next-btn" onclick="location.href='Food and Drinks.html'">Next ➡</button>
     </div>
-
+</div>
     <script>
         const buttons = document.querySelectorAll('.duration-btn');
         const durationInput = document.getElementById('durationInput');
