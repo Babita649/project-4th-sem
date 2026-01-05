@@ -1,11 +1,8 @@
-// Register Page Validation
-// ----------------------------
-// Variables
 const registerForm = document.getElementById("registerForm");
 const emailField = document.getElementById("email");
 let emailExists = false;
 
-// Email AJAX check
+// AJAX email check
 emailField.addEventListener("keyup", function () {
     let formData = new FormData();
     formData.append("email", emailField.value);
@@ -26,47 +23,39 @@ emailField.addEventListener("keyup", function () {
     xhttp.send(formData);
 });
 
-// Form validation
+// Validation
 registerForm.addEventListener("submit", function (event) {
     const name = document.getElementById("fullname").value.trim();
     const email = emailField.value.trim();
     const pass = document.getElementById("regPassword").value.trim();
     const cpass = document.getElementById("confirmPassword").value.trim();
 
-    // Full Name Validation
     if (!/^[A-Za-z ]+$/.test(name)) {
         alert("Full name must contain only letters and spaces.");
         event.preventDefault();
         return;
     }
 
-    // Email Validation
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert("Please enter a valid email address.");
+        alert("Invalid email address.");
         event.preventDefault();
         return;
     }
 
-    // Password Validation
     if (!/^(?=.*[A-Z]).{6,}$/.test(pass)) {
-        alert("Password must be at least 6 characters long and contain at least one uppercase letter.");
+        alert("Password must be at least 6 characters and contain one uppercase letter.");
         event.preventDefault();
         return;
     }
 
-    // Confirm Password
     if (pass !== cpass) {
         alert("Passwords do not match.");
         event.preventDefault();
         return;
     }
 
-    // Check email flag from AJAX
     if (emailExists) {
-        alert("Email already in use. Please enter a different one.");
+        alert("Email already in use.");
         event.preventDefault();
-        return;
     }
-
-    // ✅ Allow form submission; PHP will handle insert and redirect
 });

@@ -1,42 +1,47 @@
 <?php
 include 'db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $fullname = trim($_POST['fullname']);
     $email = trim($_POST['email']);
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
 
-    // Check password match
+    // Default role
+    $role = 'user';
+
     if ($password !== $confirmPassword) {
-        echo "Passwords do not match!";
-        exit;
+        die("Passwords do not match!");
     }
 
-    // Check if email already exists
-    $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
-    if ($stmt->num_rows > 0) {
-        echo "Email already registered!";
-        exit;
+    // Check email exists
+    $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
+    $check->bind_param("s", $email);
+    $check->execute();
+    $check->store_result();
+
+    if ($check->num_rows > 0) {
+        die("Email already registered!");
     }
+    $check->close();
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    try {
-        $stmt = $conn->prepare("INSERT INTO users (fullname, email, password, created_at, updated_at) VALUES (?, ?, ?,?, ?)");
-        $stmt->bind_param("sssss", $fullname, $email, $hashedPassword, $created_at,$updated_at);
-        $stmt->execute();
+    // Insert user
+    $stmt = $conn->prepare(
+        "INSERT INTO users (fullname, email, password, role) 
+         VALUES (?, ?, ?, ?)"
+    );
+    $stmt->bind_param("ssss", $fullname, $email, $hashedPassword, $role);
 
-        // ✅ Redirect to signin page after successful registration
+    if ($stmt->execute()) {
         header("Location: signin.php");
-        exit;
-
-    } catch (mysqli_sql_exception $e) {
-        echo "Database error: " . $e->getMessage();
+        exit();
+    } else {
+        echo "Registration failed!";
     }
+
+    $stmt->close();
 }
 ?>
