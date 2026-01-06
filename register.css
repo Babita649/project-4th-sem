@@ -72,7 +72,9 @@ input {
         color: white;
         font-size: 18px;
         cursor: pointer;
-    
+         display:block;
+       margin-left: auto;
+       margin-right: auto;
 }
 .bottom a{
     color: #7bc7ff;
