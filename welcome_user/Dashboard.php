@@ -69,7 +69,7 @@ $username = $_SESSION['username'];
         <p>Select PC</p>
     </div>
 
-    <div class="icon-box" onclick="location.href='select_games.php'">
+    <div class="icon-box" onclick="location.href='select_game.php'">
         <img src="../images/select games.jpg">
         <p>Select Games</p>
     </div>
