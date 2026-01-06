@@ -81,10 +81,8 @@ input{
 .forget:hover {
     text-decoration: underline;
 }
-
-
 .login-btn{
-    width: 100%;
+    width: 50%;
     padding: 14px;
     background: #66c029;
     border: none;
@@ -93,6 +91,9 @@ input{
     color: white;
     font-size: 18px;
     cursor: pointer;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .bottom{

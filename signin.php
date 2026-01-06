@@ -22,19 +22,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email_value = $email; // to keep in form if login fails
     $sql = "select * from users where email='$email'";
     $res = $conn->query($sql);
-    print_r($res);
+    //print_r($res);
  
 if($res->num_rows == 1){
     $data = $res->fetch_assoc();
     $user_password = $data['password'];
-        $id = $data['id'];
+        $user_id = $data['id'];
         $fullname = $data['fullname'];
         $user_email = $data['email'];
 
         // User exists, verify password
         if (password_verify($password, $user_password)) {
             session_regenerate_id(true);
-            $_SESSION['id'] = $id;
+            $_SESSION['user_id'] = $user_id;
             $_SESSION['email'] = $user_email;
             $_SESSION['fullname'] = $fullname;
             $_SESSION['role'] = $data['role'];
@@ -98,7 +98,7 @@ if($res->num_rows == 1){
         <button class="login-btn" type="submit">Login</button>
 
         <div class="bottom">
-            Don't have an account? <a href="register.php">Register</a>
+            Don't have an account? <a href="register.">Register</a>
         </div>
     </div>
 
