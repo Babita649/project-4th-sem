@@ -98,7 +98,7 @@ if($res->num_rows == 1){
         <button class="login-btn" type="submit">Login</button>
 
         <div class="bottom">
-            Don't have an account? <a href="register.">Register</a>
+            Don't have an account? <a href="register.php">Register</a>
         </div>
     </div>
 
