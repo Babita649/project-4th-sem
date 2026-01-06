@@ -20,21 +20,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
     $password = trim($_POST['password'] ?? '');
     $email_value = $email; // to keep in form if login fails
+    $sql = "select * from users where email='$email'";
+    $res = $conn->query($sql);
+    print_r($res);
+ 
+if($res->num_rows == 1){
+    $data = $res->fetch_assoc();
+    $user_password = $data['password'];
+        $id = $data['id'];
+        $fullname = $data['fullname'];
+        $user_email = $data['email'];
 
-    // Prepare statement
-    $stmt = $conn->prepare("SELECT id, email, password FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-
-    // Bind results
-    $stmt->bind_result($user_id, $user_email, $user_password);
-
-    if ($stmt->fetch()) {
         // User exists, verify password
         if (password_verify($password, $user_password)) {
             session_regenerate_id(true);
-            $_SESSION['user_id'] = $user_id;
+            $_SESSION['id'] = $id;
             $_SESSION['email'] = $user_email;
+            $_SESSION['fullname'] = $fullname;
+            $_SESSION['role'] = $data['role'];
+             if ($data['role'] === 'admin') {
+                header("Location: admin/dashboard.html");
+            } else {
+                header("Location: welcome_user/Dashboard.php");
+            }
+            exit();
 
             // Clear POST data and flash messages
             $_POST = [];
@@ -44,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email_value = '';
 
             // Redirect to dashboard
-            header("Location: welcome_user/dashboard.php");
+            header("location:welcome_user/dashboard.html");
             exit;
         } else {
             $password_error = "Incorrect password";
@@ -54,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email_error = "User not found";
     }
 
-    $stmt->close();
+    // $stmt->close();
 }
 ?>
 
@@ -62,43 +71,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign In</title>
 <link rel="stylesheet" href="signin.css">
 </head>
 <body>
+
 <form id="signinForm" method="POST" action="signin.php">
-    <div class="container">
-        <div class="left"></div>
-        <div class="right">
-            <h2>Sign in</h2>
+<div class="container">
 
-            <!-- Email -->
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Email" required value="<?php echo htmlspecialchars($email_value); ?>">
-            <?php if ($email_error): ?>
-                <div class="error" style="color:red; margin-bottom:10px;"><?php echo htmlspecialchars($email_error); ?></div>
-            <?php endif; ?>
+    <div class="left"></div>
 
-            <!-- Password -->
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Password" required>
-            <?php if ($password_error): ?>
-                <div class="error" style="color:red; margin-bottom:10px;"><?php echo htmlspecialchars($password_error); ?></div>
-            <?php endif; ?>
+    <div class="right">
+        <h2>Sign in</h2>
 
-            <a href="forgot_password.html" class="forget">Forget Password?</a>
+        <label>Email</label>
+        <input type="email" id="email" name="email" required>
 
-            <div class="remember">
-                <input type="checkbox" name="remember"> Remember me
-            </div>
+        <?php if (!empty($email_error)) echo "<p style='color:red;'>$email_error</p>"; ?>
 
-            <button class="login-btn" id="loginBtn" type="submit">Login</button>
+        <label>Password</label>
+        <input type="password" id="password" name="password" required>
 
-            <div class="bottom">
-                Don't have an account? <a href="register.html" id="registerLink">Register Now</a>
-            </div>
+        <?php if (!empty($password_error)) echo "<p style='color:red;'>$password_error</p>"; ?>
+
+        <button class="login-btn" type="submit">Login</button>
+
+        <div class="bottom">
+            Don't have an account? <a href="register.php">Register</a>
         </div>
     </div>
+
+</div>
     <script src="signin.js"></script>
 </form>
 </body>

@@ -1,6 +1,3 @@
-
-// Login Page Validation
-// ----------------------------
 // Signin Validation
 document.getElementById("loginBtn").addEventListener("submit", function (event) {
     let email = document.getElementById("email").value.trim();

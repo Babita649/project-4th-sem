@@ -9,13 +9,13 @@
 <body>
     <div class="sidebar">
         <h3>Welcome, User</h3>
-        <a href="Dashboard.html">🏠Dashboard</a>
-        <a href="Select PC.html">💻Select PC</a>
-        <a href="Select Games.html">🎮Select Games</a>
-        <a href="Duration.html">⏳Duration</a>
-        <a href="FoodandDrinks.html">🍔Foods & Drinks</a>
-        <a href="Payment.html">💳Payment</a>
-        <a href="Notification.html"> 🔔Notification</a>
+           <a href="Dashboard.php">🏠 Dashboard</a>
+            <a href="select_pc.php">💻 Select PC</a>
+            <a href="select_games.php">🎮 Select Games</a>
+            <a href="FoodandDrinks.php">🍔 Food & Drinks</a>
+            <a href="duration.php">⏳ Duration</a>
+            <a href="Payment.php">💳 Payment</a>
+            <a href="notification.php">🔔 Notifications</a>
     </div>
     <div class="payment-container">
         <h2>Payment</h2>
