@@ -7,7 +7,7 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] !== 'user') {
     exit();
 }
 
-$username = $_SESSION['username'];
+$username = 'User';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,8 +28,8 @@ $username = $_SESSION['username'];
     <div class="menu">
         <a href="Dashboard.php">🏠 Dashboard</a>
         <a href="select_pc.php">💻 Select PC</a>
-        <a href="select_games.php">🎮 Select Games</a>
-        <a href="food_drinks.php">🍔 Food & Drinks</a>
+        <a href="select_game.php">🎮 Select Games</a>
+        <a href="foodanddrinks.php">🍔 Food & Drinks</a>
         <a href="duration.php">⏳ Duration</a>
         <a href="payment.php">💳 Payment</a>
         <a href="notification.php">🔔 Notifications</a>
@@ -74,7 +74,7 @@ $username = $_SESSION['username'];
         <p>Select Games</p>
     </div>
 
-    <div class="icon-box" onclick="location.href='food_drinks.php'">
+    <div class="icon-box" onclick="location.href='foodanddrinks.php'">
         <img src="../images/food.png">
         <p>Food & Drinks</p>
     </div>
