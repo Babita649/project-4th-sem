@@ -7,7 +7,11 @@ if (!isset($_SESSION['id']) || $_SESSION['role'] !== 'user') {
     exit();
 }
 
+<<<<<<< HEAD
 $email = $_SESSION['email'];
+=======
+$username = 'User';
+>>>>>>> c8f70b60a7d0644d49d956c63298ba01b5cbde0c
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +27,7 @@ $email = $_SESSION['email'];
 
 <!-- SIDEBAR -->
 <div class="sidebar">
+<<<<<<< HEAD
     <h3>Welcome, <?= htmlspecialchars($email) ?></h3>
 
     <div class="menu">
@@ -33,6 +38,18 @@ $email = $_SESSION['email'];
             <a href="duration.php">⏳ Duration</a>
             <a href="Payment.php">💳 Payment</a>
             <a href="notification.php">🔔 Notifications</a>
+=======
+    <h3>Welcome, <?= htmlspecialchars($username) ?></h3>
+
+    <div class="menu">
+        <a href="Dashboard.php">🏠 Dashboard</a>
+        <a href="select_pc.php">💻 Select PC</a>
+        <a href="select_game.php">🎮 Select Games</a>
+        <a href="foodanddrinks.php">🍔 Food & Drinks</a>
+        <a href="duration.php">⏳ Duration</a>
+        <a href="payment.php">💳 Payment</a>
+        <a href="notification.php">🔔 Notifications</a>
+>>>>>>> c8f70b60a7d0644d49d956c63298ba01b5cbde0c
     </div>
 </div>
 
@@ -49,7 +66,11 @@ $email = $_SESSION['email'];
 
         <div class="profile-wrapper">
             <div class="profile-box" onclick="toggleProfile()">
+<<<<<<< HEAD
                 <span><?= htmlspecialchars($email) ?></span>
+=======
+                <span><?= htmlspecialchars($username) ?></span>
+>>>>>>> c8f70b60a7d0644d49d956c63298ba01b5cbde0c
                 <img src="https://img.icons8.com/color/96/user-female-circle.png">
             </div>
 
@@ -69,12 +90,20 @@ $email = $_SESSION['email'];
         <p>Select PC</p>
     </div>
 
+<<<<<<< HEAD
     <div class="icon-box" onclick="location.href='select_games.php'">
+=======
+    <div class="icon-box" onclick="location.href='select_game.php'">
+>>>>>>> c8f70b60a7d0644d49d956c63298ba01b5cbde0c
         <img src="../images/select games.jpg">
         <p>Select Games</p>
     </div>
 
+<<<<<<< HEAD
     <div class="icon-box" onclick="location.href='FoodandDrinks.php'">
+=======
+    <div class="icon-box" onclick="location.href='foodanddrinks.php'">
+>>>>>>> c8f70b60a7d0644d49d956c63298ba01b5cbde0c
         <img src="../images/food.png">
         <p>Food & Drinks</p>
     </div>
@@ -84,7 +113,11 @@ $email = $_SESSION['email'];
         <p>Duration</p>
     </div>
 
+<<<<<<< HEAD
     <div class="icon-box" onclick="location.href='Payment.php'">
+=======
+    <div class="icon-box" onclick="location.href='payment.php'">
+>>>>>>> c8f70b60a7d0644d49d956c63298ba01b5cbde0c
         <img src="https://img.icons8.com/ios/100/wallet.png">
         <p>Payment</p>
     </div>
