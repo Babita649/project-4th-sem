@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="notification.css">
 </head>
 <body>
-    <div class="sidebar">
-    <h3>Welcome, User</h3>
-            <a href="Dashboard.php">🏠 Dashboard</a>
-            <a href="select_pc.php">💻 Select PC</a>
-            <a href="select_games.php">🎮 Select Games</a>
-            <a href="FoodandDrinks.php">🍔 Food & Drinks</a>
-            <a href="duration.php">⏳ Duration</a>
-            <a href="Payment.php">💳 Payment</a>
-            <a href="notification.php">🔔 Notifications</a>
+<div class="main-container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h3>Welcome, <?= htmlspecialchars($email) ?></h3>
+    <div class="menu">
+        <a href="Dashboard.php">🏠 Dashboard</a>
+        <a href="select_pc.php">💻 Select PC</a>
+        <a href="select_games.php">🎮 Select Games</a>
+        <a href="FoodAndDrinks.php">🍔 Food & Drinks</a>
+        <a href="Duration.php">⏳ Duration</a>
+        <a href="Payment.php">💳 Payment</a>
+        <a href="Notification.php">🔔 Notifications</a>
+    </div>
 </div>
+
     <div class="container">
         <h2>Notifications</h2>
 
@@ -26,7 +32,7 @@
 
         <button onclick="clearNotifications()">Clear All</button>
     </div>
-
+</div>
     <script>
         // Sample notifications
 let notifications = [
