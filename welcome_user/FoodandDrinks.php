@@ -25,22 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['food'])) {
 
     foreach ($_POST['food'] as $item) {
         if ($item['qty'] > 0) {
-            $stmt = $conn->prepare("
-                INSERT INTO food_orders (user_id, item_name, quantity, price)
+            $stmt = $conn->prepare("INSERT INTO food_orders (user_id, item_name, quantity, price)
                 VALUES (?, ?, ?, ?)
             ");
-            $stmt->bind_param(
-                "isii",
-                $user_id,
-                $item['name'],
-                $item['qty'],
-                $item['price']
-            );
+            $stmt->bind_param("isii",$user_id, $item['item_name'],$item['qty'],$item['price']);
             $stmt->execute();
         }
     }
 
-    header("Location: Payment.php");
+    header("Location: payment.php");
     exit();
 }
 
@@ -70,7 +63,7 @@ $foods = $conn->query("SELECT * FROM food_items");
         <a href="select_games.php">🎮 Select Games</a>
         <a href="FoodAndDrinks.php">🍔 Food & Drinks</a>
         <a href="Duration.php">⏳ Duration</a>
-        <a href="Payment.php">💳 Payment</a>
+        <a href="payment.php">💳 Payment</a>
         <a href="Notification.php">🔔 Notifications</a>
     </div>
 </div>
@@ -83,14 +76,14 @@ $foods = $conn->query("SELECT * FROM food_items");
 <div class="food-list">
 <?php while($food = $foods->fetch_assoc()): ?>
     <div class="food-item">
-        <span><?= htmlspecialchars($food['name']) ?></span>
+        <span><?= htmlspecialchars($food['item_name']) ?></span>
         <span>Rs.<?= $food['price'] ?></span>
 
         <input type="number"
                min="0"
                value="0"
                data-price="<?= $food['price'] ?>"
-               data-name="<?= htmlspecialchars($food['name']) ?>">
+               data-name="<?= htmlspecialchars($food['item_name']) ?>">
     </div>
 <?php endwhile; ?>
 </div>
@@ -140,7 +133,7 @@ function submitFood() {
         if (input.value > 0) {
             const wrapper = document.createElement("div");
             wrapper.innerHTML = `
-                <input type="hidden" name="food[][name]" value="${input.dataset.name}">
+                <input type="hidden" name="food[][item_name]" value="${input.dataset.name}">
                 <input type="hidden" name="food[][qty]" value="${input.value}">
                 <input type="hidden" name="food[][price]" value="${input.dataset.price}">
             `;
