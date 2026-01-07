@@ -1,4 +1,3 @@
-
 // Get duration from URL
 let duration = getQueryParam("duration") || 1; // default 1 hour
 let ratePerHour = 50;
