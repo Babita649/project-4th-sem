@@ -81,7 +81,7 @@ input{
 .forget:hover {
     text-decoration: underline;
 }
-.login-btn{
+.loginBtn{
     width: 50%;
     padding: 14px;
     background: #66c029;

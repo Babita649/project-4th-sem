@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pc_id'])) {
 
     // Insert new selection
     $stmt = $conn->prepare("INSERT INTO pc_selection (user_id, pc_id, status, booked_at)
-        VALUES (?, ?, 'selected', NOW())
+        VALUES (?, ?, 'active', NOW())
     ");
     $stmt->bind_param("ii", $user_id, $pc_id);
     $stmt->execute();
@@ -50,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pc_id'])) {
         <a href="select_pc.php">💻 Select PC</a>
         <a href="select_games.php">🎮 Select Games</a>
         <a href="FoodAndDrinks.php">🍔 Food & Drinks</a>
-        <a href="Duration.php">⏳ Duration</a>
-        <a href="Payment.php">💳 Payment</a>
-        <a href="Notification.php">🔔 Notifications</a>
+        <a href="duration.php">⏳ Duration</a>
+        <a href="payment.php">💳 Payment</a>
+        <a href="notification.php">🔔 Notifications</a>
     </div>
 </div>
 
